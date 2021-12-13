@@ -1,0 +1,44 @@
+{
+  "name": "yadddl/value-object",
+  "description": "Yet another Serializer library",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christian Nastasi",
+      "email": "christian.nastasi@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3|^8.0",
+    "symfony/property-access": "^4.4|^5.3|^6.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "vimeo/psalm": "^4.0",
+    "friendsofphp/php-cs-fixer": "^3.0",
+    "psalm/plugin-phpunit": "^0.16.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Yadddl\\Serializer\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Yadddl\\Serializer\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "phpunit",
+    "test-with-coverage": "phpunit --coverage-clover clover.xml ",
+    "psalm": "psalm",
+    "cs-check": "php-cs-fixer fix --dry-run --diff src/",
+    "cs-fix": "php-cs-fixer fix --diff src/",
+    "test:all": [
+      "@cs-check",
+      "@psalm",
+      "@test"
+    ]
+  }
+}
