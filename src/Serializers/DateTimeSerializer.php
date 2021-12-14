@@ -16,6 +16,6 @@ class DateTimeSerializer implements Serializer
     {
         assert($object instanceof DateTime);
 
-        return $object->format('Y-m-d');
+        return $object->format('Y-m-d h:i:s');
     }
 }

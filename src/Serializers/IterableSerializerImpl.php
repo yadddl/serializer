@@ -8,10 +8,12 @@ use Yadddl\Serializer\Serializer;
 
 class IterableSerializerImpl implements IterableSerializer
 {
-    private ?Serializer $serializer;
+    private ?Serializer $serializer = null;
 
     public function __invoke(mixed $object): array
     {
+        assert(is_iterable($object), sprintf("Object should be iterable, %s found", get_debug_type($object)));
+
         $result = [];
 
         /** @var mixed */

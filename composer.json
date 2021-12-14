@@ -18,7 +18,8 @@
     "vimeo/psalm": "^4.0",
     "friendsofphp/php-cs-fixer": "^3.0",
     "psalm/plugin-phpunit": "^0.16.1",
-    "yadddl/value-object": "^0.5"
+    "yadddl/value-object": "^0.5",
+    "phpspec/prophecy-phpunit": "^2.0"
   },
   "autoload": {
     "psr-4": {
