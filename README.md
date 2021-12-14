@@ -37,8 +37,9 @@ class SillyDTO {
 }
 ```
 The easy way to serialize it is this one
+
 ```php
-use Yadddl\Serializer\SerializerBaseFactory;
+use Yadddl\Serializer\Factory\SerializerBaseFactory;
 
 // Fastest way to create a basic serializer
 $serializer = SerializerBaseFactory::make();
@@ -60,3 +61,5 @@ And the resulting json
 
 ## Documentation
 - [Conventions](docs/conventions.md)
+- [Configuration](docs/configuration.md)
+- [Override a serializer](docs/override_serializer.md)
