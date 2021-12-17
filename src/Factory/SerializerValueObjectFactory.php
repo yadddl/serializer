@@ -27,7 +27,7 @@ final class SerializerValueObjectFactory implements SerializerFactory
 
         $this->configure($registry);
 
-        return new SerializerImpl(new IterableSerializerImpl(), new ObjectSerializerImpl());
+        return new SerializerImpl(new IterableSerializerImpl(), new ObjectSerializerImpl($registry));
     }
 
     protected function configure(SerializerRegistry $registry): void
