@@ -20,12 +20,12 @@ class SerializerRegistryImpl implements SerializerRegistry
         $this->serializers[$className] = $serializer;
     }
 
-    public function serializerFor(object $object): callable|Serializer|null
+    public function serializerFor(object|string $object): callable|Serializer|null
     {
         $lastSerializer = null;
 
         foreach ($this->serializers as $className => $serializer) {
-            if ($object instanceof $className) {
+            if (is_a($object, $className, true)) {
                 $lastSerializer = $serializer;
             }
         }
