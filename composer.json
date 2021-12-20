@@ -32,7 +32,7 @@
     }
   },
   "suggest": {
-    "yadddl/value-object": "^0.5"
+    "yadddl/value-object": "If you need a ready to use primitive objects"
   },
   "scripts": {
     "test": "phpunit",

@@ -3,8 +3,10 @@
 
 This library implements a serializer, and it follows those rules:
 
-- Do not use extra metadata. The PHP language is expressive enough to gives you everything you need.
-- Prefer conventions over configurations (just configure what differ from the standard use case, that already cover the majority of the cases)
+- **Do not use extra metadata:** the PHP language is expressive enough to give you everything you need.
+
+
+- **Convention over configuration:** just configure what differ from the standard use case, that already cover the majority of the cases.
 
 It goes in-pair with the [Value Object](https://github.com/yadddl/value-object) project of the same family, but could be used alone. Just be sure to follow the [conventions](docs/conventions.md)!
 

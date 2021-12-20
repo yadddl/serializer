@@ -1,11 +1,22 @@
 # Conventions
-The serializer works following conventions (like: if it has a getter, than )
+We think that following conventions speeds up the developing time. Of course, sometimes it's not the best option, but if it fit almost all of your use case, why not?
 
-* A class property could be private/protected or public
-  * If public, then it is writable/readable
-  * If private/protected, there's need a getter/isser/hasser to be accessed, otherwise it's hidden
-  > ***NOTE:*** *Immutable object are good things, try to avoid use public properties*
-*  A class could have a `__toString` method   
+So, if you'll follow those conventions, you can use the serializer without any configuration at all:
+
+1) If the class has both a private property and a public getter, then it will serialize the property
+2) If the class has both a private property and an hasser / isser, then it will serialize the property as a boolean
+3) If the class has a getter / hasser / isser but not the property, then it will NOT serialize the property at all
+4) If the property is private / protected and hasn't any getter / isser / hasser, then it wil NOT serialized
+5) If the property is public, without any accessor, then it will serialized
+6) The class could implement the `__toString` method
+
+## Edge cases
+- If there's a **public property** and an **hasser**, then the **hasser** won
+- If there's a **getter** and an **hasser**, then the **getter** won
+- If there's a **getter** and a **public property**, then the **getter** won
+
+`public property < hasser < getter/isser`
 
 
-Since internal it is used the property-access package, it follow
+
+> NOTE: Since behind the scene there is the property-access package, the serializer will follow exactly its behaviour
