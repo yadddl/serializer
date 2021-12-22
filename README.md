@@ -13,9 +13,7 @@ It goes in-pair with the [Value Object](https://github.com/yadddl/value-object) 
 It doesn't cover all the possibile use cases, then use it if you want, or contribute if you like what we are doing and want to expand it.
 
 ## Usage
-    composer require yaddls/serializer:^0.5
-
-![WARNING](assets/warning.png) NOT YET IN PACKAGIST, COMING SOON! ![WARNING](assets/warning.png)
+    composer require yadddl/serializer
 
 ## Getting started
 Given a simple DTO
