@@ -14,7 +14,7 @@ class IntegerSerializer implements Serializer
 {
     public function __invoke(mixed $object): int
     {
-        assert($object instanceof Integer);
+        assert($object instanceof Integer, sprintf('Object cannot be serialized. Expecting "%s", found "%s"', Integer::class, $object::class));
 
         return $object->toInt();
     }
