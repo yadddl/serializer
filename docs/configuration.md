@@ -1,8 +1,29 @@
 # Configuration
 
-Not always the basic configuration is enough. If you need to customize the serializer with your own classes, then you should create your own factory.
+Following conventions is good for almost every case. Almost. But if you need to serialize your own object in a special
+way, you can add custom serializers and that's it. You just need to implement your own Serializer Factory.
 
-You can choose two ways to write a custom serializer. You can implements the `Serializer` interface: 
+```php
+class MyCustomSerializerFactory implements SerializerFactory
+{
+    public function __invoke(): Serializer
+    {
+        $registry = new SerializerRegistryImpl();
+        
+        $registry
+        $registry->register(Integer::class, new IntegerSerializer());
+        $registry->register(DateTime::class, new DateTimeSerializer());
+
+        return new SerializerImpl(
+            new IterableSerializerImpl(), 
+            new ObjectSerializerImpl($registry)
+        );
+    }
+}
+```
+
+And there are two ways to write a custom serializer. You can implements the `Serializer` interface:
+
 ```php
 use Yadddl\Serializer\Serializer;
 
@@ -16,10 +37,13 @@ class IntegerSerializer implements Serializer
     }
 }
 ````
+
 Or just use a closure:
+
 ```php
 $integerSerializer = fn (Integer $integer) => $integer->toInt());
 ```
+
 And then
 
 ```php

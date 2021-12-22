@@ -19,4 +19,4 @@ So, if you'll follow those conventions, you can use the serializer without any c
 
 
 
-> NOTE: Since behind the scene there is the property-access package, the serializer will follow exactly its behaviour
+> **NOTE**: Behind the scene there is the `symfony/property-access` package, this means that the serializer follows the same access rule and behaviour of that package.
