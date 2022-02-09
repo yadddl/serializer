@@ -6,7 +6,7 @@ namespace Yadddl\Serializer\Registry;
 
 use Yadddl\Serializer\Serializer;
 
-class SerializerRegistryImpl implements SerializerRegistry
+final class SerializerRegistryImpl implements SerializerRegistry
 {
     /** @psalm-var array<class-string, callable|Serializer> */
     private array $serializers = [];
@@ -31,5 +31,19 @@ class SerializerRegistryImpl implements SerializerRegistry
         }
 
         return $lastSerializer;
+    }
+
+    /**
+     * @param array<string, callable|Serializer> $serializers
+     */
+    public static function make(array $serializers): SerializerRegistryImpl
+    {
+        $instance = new self();
+
+        foreach ($serializers as $className => $serializer) {
+            $instance->register($className, $serializer);
+        }
+
+        return $instance;
     }
 }

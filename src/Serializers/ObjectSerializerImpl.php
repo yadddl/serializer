@@ -56,6 +56,16 @@ class ObjectSerializerImpl implements ObjectSerializer
             return $serializer($object);
         }
 
+        if ($this->isEnum($object)) {
+            if ($object instanceof \BackedEnum) {
+                return $object->value;
+            }
+
+            if ($object instanceof \UnitEnum) {
+                return $object->name;
+            }
+        }
+
         // I know there's a Stringable interface, but I think is better to not depend on it
         if (method_exists($object, '__toString')) {
             return (string)$object;
@@ -70,6 +80,15 @@ class ObjectSerializerImpl implements ObjectSerializer
         }
 
         return $result;
+    }
+
+    private function isEnum($value):bool {
+        return $value instanceof \UnitEnum;
+    }
+
+
+    private function serializeEnums(BackedEnum $enum): mixed {
+
     }
 
     private function setValue(ReflectionProperty $property, object $object, array &$result): void

@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": ">=8.0",
+    "php": "^8.0|^8.1",
     "symfony/property-access": "^4.4|^5.3|^6.0"
   },
   "require-dev": {
@@ -24,7 +24,10 @@
   "autoload": {
     "psr-4": {
       "Yadddl\\Serializer\\": "src/"
-    }
+    },
+    "files": [
+      "enum-polyfill.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
